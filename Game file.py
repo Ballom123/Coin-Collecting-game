@@ -37,7 +37,9 @@ class StartScrn:
 class Rahasade:
     def __init__(self):
         
-        self.robotti = pygame.Rect(640/2 - (robo.get_width()/2),480-robo.get_height(), robo.get_width(), robo.get_height())
+        self.robotti = pygame.Rect(640/2 - (robo.get_width()/2),480-robo.get_height()
+                                            , robo.get_width()
+                                            , robo.get_height())
         self.rahat = []
         self.monsut = []
         self.pisteet = 0
@@ -47,9 +49,14 @@ class Rahasade:
         self.vasemmalle=False
         #Ei mitään käsitystä monta kolikkoa tai hirviötä olisi hyvä niin laitoin 20 + 5.
         for i in range(20):
-            self.rahat.append(pygame.Rect(random.randint(0, 640-kolikko.get_width()), random.randint(-600, 0-kolikko.get_height()), kolikko.get_width(), kolikko.get_height()))
+            self.rahat.append(pygame.Rect(random.randint(0, 640-kolikko.get_width())
+                                , random.randint(-600, 0-kolikko.get_height())
+                                , kolikko.get_width()
+                                , kolikko.get_height()))
         for i in range(5):
-            self.monsut.append(pygame.Rect(random.randint(0, 640-hirvio.get_width()), random.randint(-600, 0-hirvio.get_height()), hirvio.get_width(), hirvio.get_height()))
+            self.monsut.append(pygame.Rect(random.randint(0, 640-hirvio.get_width())
+                                            , random.randint(-600, 0-hirvio.get_height())
+                                            , hirvio.get_width(), hirvio.get_height()))
  
         self.silmukka()   
  
@@ -96,9 +103,9 @@ class Rahasade:
         if self.peli_kaynnissa:    
             #robo liikkuu suuntiin
             if self.oikealle:
-                pygame.Rect.move_ip(self.robotti, 2, 0)
+                pygame.Rect.move_ip(self.robotti, 3, 0)
             if self.vasemmalle:
-                pygame.Rect.move_ip(self.robotti, -2, 0)
+                pygame.Rect.move_ip(self.robotti, -3, 0)
             
             #change to colliderect()?
             for r in self.rahat:
